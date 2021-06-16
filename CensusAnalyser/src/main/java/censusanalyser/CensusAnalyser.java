@@ -8,6 +8,7 @@ import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Iterator;
+import java.util.stream.StreamSupport;
 
 public class CensusAnalyser 
 {
@@ -40,5 +41,30 @@ public class CensusAnalyser
             throw new CensusAnalyserException(e.getMessage(),
                     CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM);
         } 
+    }
+    
+    /**
+     * This method is use to analyze the Indian state code 
+     * @param filePathCSV
+     * @return number of entries
+     * @throws CensusAnalyserException
+     */
+    public static int loadCodeData(String filePathCSV) throws CensusAnalyserException 
+    {
+        try (Reader reader = Files.newBufferedReader(Paths.get(filePathCSV))) 
+        {
+            CsvToBean<IndiaStateCodeCSV> csvToBean = new CsvToBeanBuilder<IndiaStateCodeCSV>(reader)
+									                 .withType(IndiaStateCodeCSV.class)
+									                 .withIgnoreLeadingWhiteSpace(true)
+									                 .build();
+            Iterator<IndiaStateCodeCSV> indiaStateCodeCSVIterator = csvToBean.iterator();
+            Iterable<IndiaStateCodeCSV> censusCSVIterable = () -> indiaStateCodeCSVIterator;
+            return (int) StreamSupport.stream(censusCSVIterable.spliterator(), false).count();
+        } 
+        catch (IOException e) 
+        {
+        	 throw new CensusAnalyserException(e.getMessage(),
+                     CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM);
+        }
     }
 }

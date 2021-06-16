@@ -10,8 +10,10 @@ public class CensusAnalyserTest {
     private static final String WRONG_CSV_FILE_PATH = "./src/main/resources/IndiaStateCensusData.csv";
 
     @Test
-    public void givenIndianCensusCSVFileReturnsCorrectRecords() {
-        try {
+    public void givenIndianCensusCSVFileReturnsCorrectRecords() 
+    {
+        try 
+        {
             CensusAnalyser censusAnalyser = new CensusAnalyser();
             int numOfRecords = censusAnalyser.loadIndiaCensusData(INDIA_CENSUS_CSV_FILE_PATH);
             Assert.assertEquals(29,numOfRecords);
@@ -19,8 +21,10 @@ public class CensusAnalyserTest {
     }
 
     @Test
-    public void givenIndiaCensusData_WithWrongFile_ShouldThrowException() {
-        try {
+    public void givenIndiaCensusData_WithWrongFile_ShouldThrowException() 
+    {
+        try 
+        {
             CensusAnalyser censusAnalyser = new CensusAnalyser();
             ExpectedException exceptionRule = ExpectedException.none();
             exceptionRule.expect(CensusAnalyserException.class);

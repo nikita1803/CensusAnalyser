@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="CensusAnalyser/src/main/java"/>
+	<classpathentry kind="src" path="CensusAnalyser/src/test/java"/>
+	<classpathentry kind="lib" path="CensusAnalyser/gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="lib" path="C:/Users/OM NAMO NAMAH/.gradle/caches/modules-2/files-2.1/com.opencsv/opencsv/4.1/5d0a1c5f5e94c9fc00a7e6c886e2d2a1511ea95e/opencsv-4.1.jar" sourcepath="C:/Users/OM NAMO NAMAH/.gradle/caches/modules-2/files-2.1/com.opencsv/opencsv/4.1/3651eee22f4df5a73f5a75e992f662be400d1ef9/opencsv-4.1-sources.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="output" path="CensusAnalyser/build/classes/java/main"/>
+</classpath>
